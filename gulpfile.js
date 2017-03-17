@@ -23,7 +23,11 @@ gulp.task('minify-js', function () {
 });
 
 //css文件压缩
-gulp.task('minify-css', function(){});
+gulp.task('minify-css', function(){
+    gulp.src('./app/css/*.css') // 要压缩的css文件
+        .pipe(plugins.minifyCss()) //压缩css
+        .pipe(gulp.dest('./dist/css'));
+});
 
 //js代码检查
 gulp.task('jshint', function(){
@@ -32,8 +36,15 @@ gulp.task('jshint', function(){
         .pipe(plugins.jshint.reporter()); // 输出检查结果
 });
 
+//html文件压缩
+gulp.task('minify-html', function(){
+    gulp.src('./app/*.html') // 要压缩的html文件
+        .pipe(plugins.minifyHtml()) //压缩
+        .pipe(gulp.dest('./dist'));
+});
+
 //文件合并
-gulp.task('gulp-concat', function(){});
+gulp.task('gulp-concats', function(){});
 
 //图片压缩
 gulp.task('gulp-concat', function(){});
