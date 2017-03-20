@@ -1,3 +1,6 @@
 .span{
     color: aqua;
 }
+.span{
+    display: flex;
+}
